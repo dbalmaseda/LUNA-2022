@@ -6,7 +6,7 @@ from pathlib import Path
 import json
 
 import tensorflow.keras
-from tensorflow.keras.applications import VGG16
+from tensorflow.keras.applications import VGG16, ResNet50
 
 # Enforce some Keras backend settings that we need
 tensorflow.keras.backend.set_image_data_format("channels_first")
@@ -35,12 +35,12 @@ class Nodule_classifier:
         self.input_spacing = 0.2
 
         # load malignancy model
-        self.model_malignancy = VGG16(
-            include_top=True,
-            weights=None,
+        self.model_malignancy = ResNet50(
+            include_top=False,
+            weights="imagenet",
             input_tensor=None,
             input_shape=None,
-            pooling=None,
+            pooling="avg",
             classes=2,
             classifier_activation="softmax",
         )
