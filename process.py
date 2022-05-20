@@ -45,7 +45,7 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_malignancy.load_weights(
-            "/opt/algorithm/models/vgg16_malignancy_best_val_accuracy.h5",
+            "/opt/algorithm/models/resnet50_malignancy_best_val_accuracy.h5",
             by_name=True,
             skip_mismatch=True,
         )
