@@ -35,7 +35,7 @@ class Nodule_classifier:
         self.input_spacing = 0.2
 
         # load malignancy model
-        self.model_malignancy = ResNet50(
+        self.model_malignancy = VGG16(
             include_top=False,
             weights="imagenet",
             input_tensor=None,
@@ -45,7 +45,7 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_malignancy.load_weights(
-            "/opt/algorithm/models/resnet50_malignancy_best_val_accuracy.h5",
+            "/opt/algorithm/models/vgg16_malignancy_best_val_accuracy.h5",
             by_name=True,
             skip_mismatch=True,
         )
