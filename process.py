@@ -36,7 +36,7 @@ class Nodule_classifier:
 
         # load malignancy model
         self.model_malignancy = VGG16(
-            include_top=False,
+            include_top=True,
             weights=None,
             input_tensor=None,
             input_shape=None,
