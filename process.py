@@ -6,7 +6,7 @@ from pathlib import Path
 import json
 
 import tensorflow.keras
-from tensorflow.keras.applications import VGG16, ResNet50
+from tensorflow.keras.applications import VGG16
 
 # Enforce some Keras backend settings that we need
 tensorflow.keras.backend.set_image_data_format("channels_first")
