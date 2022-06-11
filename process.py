@@ -40,7 +40,7 @@ class Nodule_classifier:
             weights=None,
             input_tensor=None,
             input_shape=None,
-            pooling="avg",
+            pooling=None,
             classes=2,
             classifier_activation="softmax",
         )
@@ -51,7 +51,7 @@ class Nodule_classifier:
         )
 
         # load texture model
-        self.model_nodule_type = ResNet50(
+        self.model_nodule_type = VGG16(
             include_top=True,
             weights=None,
             input_tensor=None,
@@ -61,7 +61,7 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_nodule_type.load_weights(
-            "/opt/algorithm/models/resnet50_noduletype_best_val_accuracy.h5",
+            "/opt/algorithm/models/vgg16_noduletype_best_val_accuracy.h5",
             by_name=True,
             skip_mismatch=True,
         )
