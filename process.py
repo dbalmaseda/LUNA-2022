@@ -35,7 +35,7 @@ class Nodule_classifier:
         self.input_spacing = 0.2
 
         # load malignancy model
-        self.model_malignancy = EfficientNetB0(
+        self.model_malignancy = ResNet50(
             include_top=True,
             weights=None,
             input_tensor=None,
@@ -45,13 +45,13 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_malignancy.load_weights(
-            "/opt/algorithm/models/efficientb0_classbal_malignancy_best_val_accuracy.h5",
+            "/opt/algorithm/models/resnet50_classbal_malignancy_best_val_accuracy.h5",
             by_name=True,
             skip_mismatch=True,
         )
 
         # load texture model
-        self.model_nodule_type = EfficientNetB0(
+        self.model_nodule_type = ResNet50(
             include_top=True,
             weights=None,
             input_tensor=None,
@@ -61,7 +61,7 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_nodule_type.load_weights(
-            "/opt/algorithm/models/efficientb0_noduletype_best_val_accuracy.h5",
+            "/opt/algorithm/models/resnet50_normal_noduletype_1_best_vall_acc.h5",
             by_name=True,
             skip_mismatch=True,
         )
