@@ -51,7 +51,7 @@ class Nodule_classifier:
         )
 
         # load texture model
-        self.model_nodule_type = VGG16(
+        self.model_nodule_type = EfficientNetB0(
             include_top=True,
             weights=None,
             input_tensor=None,
@@ -61,7 +61,7 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_nodule_type.load_weights(
-            "/opt/algorithm/models/vgg16_noduletype_best_val_accuracy.h5",
+            "/opt/algorithm/models/efficientb0_noduletype_best_val_accuracy.h5",
             by_name=True,
             skip_mismatch=True,
         )
