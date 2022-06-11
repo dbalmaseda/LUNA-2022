@@ -6,7 +6,7 @@ from pathlib import Path
 import json
 
 import tensorflow.keras
-from tensorflow.keras.applications import VGG16
+from tensorflow.keras.applications import VGG16, ResNet50
 
 # Enforce some Keras backend settings that we need
 tensorflow.keras.backend.set_image_data_format("channels_first")
@@ -35,7 +35,7 @@ class Nodule_classifier:
         self.input_spacing = 0.2
 
         # load malignancy model
-        self.model_malignancy = VGG16(
+        self.model_malignancy = ResNet50(
             include_top=True,
             weights=None,
             input_tensor=None,
@@ -45,13 +45,13 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_malignancy.load_weights(
-            "/opt/algorithm/models/vgg16_malignancy_best_val_accuracy.h5",
+            "/opt/algorithm/models/resnet50_malignancy_best_val_accuracy.h5",
             by_name=True,
             skip_mismatch=True,
         )
 
         # load texture model
-        self.model_nodule_type = VGG16(
+        self.model_nodule_type = ResNet50(
             include_top=True,
             weights=None,
             input_tensor=None,
@@ -61,7 +61,7 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_nodule_type.load_weights(
-            "/opt/algorithm/models/vgg16_noduletype_best_val_accuracy.h5",
+            "/opt/algorithm/models/resnet50_noduletype_best_val_accuracy.h5",
             by_name=True,
             skip_mismatch=True,
         )
