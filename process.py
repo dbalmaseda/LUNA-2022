@@ -62,14 +62,6 @@ class Nodule_classifier:
         )
         self.model_nodule_type.load_weights(
             "/opt/algorithm/models/vgg16_adam_noduletype_best_val_accuracy.h5"
-https://zoom.us/j/93826075876?pwd=YitHMnNRY3NaMklhRU84TFF5NkdPZz09
-
-Meeting ID: 938 2607 5876
-Passcode: WUx9QY
-
-
-
-.h5",
             by_name=True,
             skip_mismatch=True,
         )
