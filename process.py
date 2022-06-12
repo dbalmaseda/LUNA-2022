@@ -35,7 +35,7 @@ class Nodule_classifier:
         self.input_spacing = 0.2
 
         # load malignancy model
-        self.model_malignancy = InceptionResNetV2(
+        self.model_malignancy = ResNet50(
             include_top=True,
             weights=None,
             input_tensor=None,
@@ -45,13 +45,13 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_malignancy.load_weights(
-            "/opt/algorithm/models/inceptionresnet_normal_malignancy_1_best_vall_acc.h5",
+            "/opt/algorithm/models/resnet50_classbal_malignancy_best_val_accuracy.h5",
             by_name=True,
             skip_mismatch=True,
         )
 
         # load texture model
-        self.model_nodule_type = EfficientNetB0(
+        self.model_nodule_type = VGG16(
             include_top=True,
             weights=None,
             input_tensor=None,
@@ -61,7 +61,15 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_nodule_type.load_weights(
-            "/opt/algorithm/models/efficientnetv2_normal_noduletype_1_best_vall_acc.h5",
+            "/opt/algorithm/models/vgg16_adam_noduletype_best_val_accuracy.h5"
+https://zoom.us/j/93826075876?pwd=YitHMnNRY3NaMklhRU84TFF5NkdPZz09
+
+Meeting ID: 938 2607 5876
+Passcode: WUx9QY
+
+
+
+.h5",
             by_name=True,
             skip_mismatch=True,
         )
