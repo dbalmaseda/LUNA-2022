@@ -61,7 +61,7 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_nodule_type.load_weights(
-            "/opt/algorithm/models/vgg16_adam_noduletype_best_val_accuracy.h5",
+            "/opt/algorithm/models/vgg16_adam_augnoduletype_best_val_accuracy.h5",
             by_name=True,
             skip_mismatch=True,
         )
