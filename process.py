@@ -39,7 +39,7 @@ class Nodule_classifier:
             include_top=True,
             weights=None,
             input_tensor=None,
-            input_shape=(3,224,224),
+            input_shape=None,
             pooling=None,
             classes=2,
             classifier_activation="softmax",
