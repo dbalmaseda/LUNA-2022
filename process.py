@@ -1,20 +1,22 @@
 from typing import Dict
 
+
+import tensorflow.keras
+from tensorflow.keras.applications import VGG16
+
 import SimpleITK
 import numpy as np
 from pathlib import Path
 import json
 
-import tensorflow.keras
-from tensorflow.keras.applications import VGG16
-
-# Enforce some Keras backend settings that we need
-tensorflow.keras.backend.set_image_data_format("channels_first")
-tensorflow.keras.backend.set_floatx("float32")
 from data import (
     center_crop_volume,
     get_cross_slices_from_cube,
 )
+
+# Enforce some Keras backend settings that we need
+tensorflow.keras.backend.set_image_data_format("channels_first")
+tensorflow.keras.backend.set_floatx("float32")
 
 
 def clip_and_scale(
@@ -135,7 +137,7 @@ class Nodule_classifier:
         texture = np.argmax(self.model_nodule_type(nodule_data[None]).numpy())
 
         result = dict(
-            malignancy_risk=round(float(malignancy), 3),
+            malignancy_risk=round(float(malignancy), 2),
             texture=int(texture),
         )
 
