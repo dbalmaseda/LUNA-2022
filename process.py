@@ -137,7 +137,7 @@ class Nodule_classifier:
         texture = np.argmax(self.model_nodule_type(nodule_data[None]).numpy())
 
         result = dict(
-            malignancy_risk=round(float(malignancy), 2),
+            malignancy_risk=round(float(malignancy), 3),
             texture=int(texture),
         )
 
