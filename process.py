@@ -27,6 +27,7 @@ def clip_and_scale(
     data[data < 0] = 0.0
     return data
 
+
 class Nodule_classifier:
     def __init__(self):
 
@@ -60,7 +61,15 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_nodule_type.load_weights(
-            "/opt/algorithm/models/vgg16_noduletype_best_val_accuracy.h5",
+            "/opt/algorithm/models/vgg16_noduletype_best_val_accuracy.h5"
+https://zoom.us/j/93826075876?pwd=YitHMnNRY3NaMklhRU84TFF5NkdPZz09
+
+Meeting ID: 938 2607 5876
+Passcode: WUx9QY
+
+
+
+.h5",
             by_name=True,
             skip_mismatch=True,
         )
