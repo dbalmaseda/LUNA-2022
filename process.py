@@ -27,7 +27,6 @@ def clip_and_scale(
     data[data < 0] = 0.0
     return data
 
-
 class Nodule_classifier:
     def __init__(self):
 
@@ -35,7 +34,7 @@ class Nodule_classifier:
         self.input_spacing = 0.2
 
         # load malignancy model
-        self.model_malignancy = ResNet50(
+        self.model_malignancy = EfficientNetB0(
             include_top=True,
             weights=None,
             input_tensor=None,
@@ -45,7 +44,7 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_malignancy.load_weights(
-            "/opt/algorithm/models/resnet50_classbal_malignancy_best_val_accuracy.h5",
+            "/opt/algorithm/models/efficientb0_classbal_malignancy_best_val_accuracy.h5",
             by_name=True,
             skip_mismatch=True,
         )
@@ -61,7 +60,7 @@ class Nodule_classifier:
             classifier_activation="softmax",
         )
         self.model_nodule_type.load_weights(
-            "/opt/algorithm/models/vgg16_adam_augnoduletype_best_val_accuracy.h5",
+            "/opt/algorithm/models/vgg16_noduletype_best_val_accuracy.h5",
             by_name=True,
             skip_mismatch=True,
         )
